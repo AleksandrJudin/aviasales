@@ -1,0 +1,94 @@
+@import ../../sass/_vars
+
+.filter
+    transition: 0.4s
+    background-color: #fff
+    width: 232px
+    padding: 10px 0
+    border-radius: 5px
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1)
+    fieldset
+        border: none
+        padding: 0
+        margin: 0
+    legend
+        font-size: 12px
+        padding: 10px 25px
+        text-transform: uppercase
+        font-weight: 600
+
+.checkbox
+    transition: 0.4s
+    display: flex
+    flex-direction: column
+    label
+        font-size: 13px
+        padding: 11px 25px
+        &:hover
+            transition: 0.4s
+            background-color: $label-hover
+
+.custom-checkbox
+    position: absolute
+    z-index: -1
+    opacity: 0
+
+.custom-checkbox + label
+    transition: 0.4s
+    display: inline-flex
+    align-items: center
+    user-select: none
+    cursor: pointer
+
+.custom-checkbox+label::before
+
+    content: ''
+    display: inline-block
+    width: 20px
+    height: 20px
+    flex-shrink: 0
+    flex-grow: 0
+    border: 1px solid $no-checked-border
+    border-radius: 2px
+    margin-right: 0.5em
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 50% 50%
+
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before
+    opacity: 0.7
+
+.custom-checkbox:not(:disabled):active+label::before
+    border-color: $no-checked-border
+
+.custom-checkbox:focus+label::before
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25)
+
+.custom-checkbox:focus:not(:checked)+label::before
+    border-color: #80bdff
+
+.custom-checkbox:checked+label::before
+    border-color: $checked-border
+    background-image: url('./checked.svg')
+    background-size: 70%
+
+.custom-checkbox:disabled+label::before
+    background-color: #e9ecef
+
+@media screen and ( max-width: 768px )
+    .filter
+        width: 100%
+        margin: 0 auto 20px auto
+    legend
+        text-align: center
+    .checkbox
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+@media screen and ( max-width: 510px )
+    .checkbox
+        grid-template-columns: 1fr 1fr
+@media screen and ( max-width: 360px )
+    .checkbox
+        grid-template-columns: 1fr
+    legend
+        text-align: left

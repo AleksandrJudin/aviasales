@@ -1,0 +1,53 @@
+@import ../../sass/_vars
+
+.tabs
+    margin-left: 20px
+    .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-wrap
+        border: 1px solid $tabs-border
+        background-color: #fff
+        border-radius: 5px
+        cursor: pointer
+        .ant-tabs-nav-list
+            display: flex
+    .ant-tabs-tab
+        padding: 15px 57px
+        margin: 0
+    .ant-tabs-tab .ant-tabs-tab-btn
+        font-style: normal
+        font-weight: 600
+        font-size: 12px
+        line-height: 20px
+        text-transform: uppercase
+        color: $main-content
+        z-index: 5
+    .ant-tabs-tab-active
+        font-weight: 600
+        transition: 0.4s
+        z-index: 0
+        &:first-child
+            border-top-left-radius: 5px
+            border-bottom-left-radius: 5px
+            background-color: $tabs-active
+        &:not(:first-child)
+            border-top-right-radius: 5px
+            border-bottom-right-radius: 5px
+            background-color: $tabs-active
+        .ant-tabs-tab-btn
+            color: #fff
+
+    .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar, .ant-tabs-top > div > .ant-tabs-nav .ant-tabs-ink-bar, .ant-tabs-nav-operations
+        display: none
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn
+        color: white
+        font-weight: 600
+
+@media screen and ( max-width: 768px )
+    .tabs
+        margin-left: 0
+        width: 100%
+    .tabs .ant-tabs-tab
+        width: 100%
+        text-align: center
+@media screen and ( max-width: 510px )
+    .tabs .ant-tabs-tab
+        padding: 10px 0
