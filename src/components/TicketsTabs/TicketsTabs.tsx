@@ -14,7 +14,7 @@ export default () => {
   const dispatch = useDispatch();
 
   const { data }: any = useSelector((state: IRootState) => state.tickets);
-  console.log(data);
+
   const {
     isAll,
     isNotTransfer,
